@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Stories Privado</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    /* fundo em vídeo */
+    .bg video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      transition: filter 1s ease;
+    }
+
+    .bg.blur video {
+      filter: blur(10px);
+    }
+
+    .texto {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 1px 1px 4px #000;
+      opacity: 0;
+      transition: opacity 1s ease;
+      z-index: 1;
+    }
+
+    .texto.visivel {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg" id="fundo">
+    <video autoplay muted playsinline>
+      <source src="https://s3.meucanalvip.org/previassarah/safadinha4.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos.
+    </video>
+  </div>
+
+  <div class="texto" id="mensagem">
+    Stories privado da Sarah acabou...
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('fundo').classList.add('blur');
+      document.getElementById('mensagem').classList.add('visivel');
+    }, 22000); // após 22 segundos
+  </script>
+
+</body>
+</html>
